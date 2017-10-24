@@ -8,4 +8,5 @@ public interface DocumentService {
 
 	public List<Document> findDocuments();
 	public Document findDocument(int id);
+	public Document create(Document document);
 }

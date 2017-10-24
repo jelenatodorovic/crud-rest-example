@@ -43,6 +43,13 @@ public class DocumentServiceImpl implements DocumentService{
 		}
 		return document;
 	}
+
+
+	@Override
+	public Document create(Document document) {
+		// TODO Auto-generated method stub
+		return documentDAO.save(document);
+	}
 	
 	
 

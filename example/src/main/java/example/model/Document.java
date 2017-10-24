@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 @Table(name = "Document")
 public class Document {
@@ -21,10 +23,13 @@ public class Document {
 	private String code;
 	
 	@Column(name = "date")
+	@JsonFormat(pattern = "MM/dd/yyyy")
 	private Date date;
 	
 	@Column(name = "name")
 	private String name;
+	
+	public Document() {}
 	
 	public Document(String code, Date date, String name) {
 		this.code = code;
