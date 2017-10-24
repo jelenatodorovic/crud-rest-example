@@ -7,6 +7,6 @@ import example.model.Document;
 public interface DocumentDAO extends CrudRepository<Document, Integer>{
 	public Iterable<Document> findAll();
 	public Document findById(int id);
-	public void delete(Document d);
+	public void delete(int id);
 	public Document save(Document d);
 }

@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -40,6 +41,12 @@ public class DocumentController {
 	public ResponseEntity<Document> createDocument(@RequestBody Document document) {
 		Document documentnew = documentService.create(document);
 		return new ResponseEntity<Document>(documentnew, HttpStatus.CREATED);
+	}
+	
+	@DeleteMapping(value = "/delete/{documentId}")
+	public ResponseEntity<String> deleteDocument(@PathVariable("documentId") int id) {
+		documentService.delete(id);
+		return new ResponseEntity<String>(HttpStatus.OK);
 	}
 	
 }

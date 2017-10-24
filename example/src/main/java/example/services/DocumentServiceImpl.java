@@ -50,6 +50,13 @@ public class DocumentServiceImpl implements DocumentService{
 		// TODO Auto-generated method stub
 		return documentDAO.save(document);
 	}
+
+
+	@Override
+	public void delete(int id) {
+		// TODO Auto-generated method stub
+		documentDAO.delete(id);
+	}
 	
 	
 
