@@ -1,12 +1,14 @@
 package example.model;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -15,7 +17,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 @Table(name = "Document")
 public class Document {
 	
-	@Id	
+	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
@@ -29,12 +31,19 @@ public class Document {
 	@Column(name = "name")
 	private String name;
 	
+	@OneToMany(mappedBy = "document")
+	private List<DocumentItem> items;
+	
 	public Document() {}
 	
 	public Document(String code, Date date, String name) {
 		this.code = code;
 		this.date = date;
 		this.name = name;
+	}
+	
+	public Document(int id) {
+		this.id = id;
 	}
 	
 	public void setId(int id) {
@@ -53,6 +62,10 @@ public class Document {
 		this.name = name;
 	}
 	
+	public void setItems(List<DocumentItem> items) {
+		this.items = items;
+	}
+	
 	public int getId() {
 		return id;
 	}
@@ -67,5 +80,9 @@ public class Document {
 	
 	public String getName() {
 		return name;
+	}
+	
+	public List<DocumentItem> getItems() {
+		return this.items;
 	}
 }

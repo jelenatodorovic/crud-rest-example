@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import example.model.Document;
+import example.model.DocumentItem;
+import example.services.DocumentItemServiceImpl;
 import example.services.DocumentServiceImpl;
 
 @Controller
@@ -25,14 +27,18 @@ public class DocumentController {
 	@Autowired
 	DocumentServiceImpl documentService;
 	
+	@Autowired
+	DocumentItemServiceImpl documentItemService;
+	
 	@RequestMapping(value = "/findAll", method = RequestMethod.GET)
 	public @ResponseBody List<Document> findAllDocuments() {
 		return documentService.findDocuments();
 	}
 	
-	@RequestMapping(value = "/{documentId}", method = RequestMethod.GET)
+	@RequestMapping(value = "/{documentId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody Document findDoc(@PathVariable("documentId") int id) {
-		return documentService.findDocument(id);
+		Document d = documentService.findDocument(id);
+		return d;
 	}
 	
 	@PostMapping(headers = {"content-type=application/json" }, consumes = MediaType.APPLICATION_JSON_VALUE)
@@ -45,6 +51,16 @@ public class DocumentController {
 	public ResponseEntity<String> deleteDocument(@PathVariable("documentId") int id) {
 		documentService.delete(id);
 		return new ResponseEntity<String>(HttpStatus.OK);
+	}
+	
+	//======== Document item ===============
+	
+	@PostMapping(value = "/{documentId}/items", headers = {"content-type=application/json" }, consumes = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<DocumentItem> createDocumentItem(@PathVariable("documentId")int docId, @RequestBody DocumentItem documentItem) {
+		documentItem.setDocument(new Document(docId));
+		DocumentItem item = documentItemService.save(documentItem);
+		
+		return new ResponseEntity<DocumentItem>(item, HttpStatus.CREATED);
 	}
 	
 }
