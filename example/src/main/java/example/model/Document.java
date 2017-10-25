@@ -16,7 +16,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 public class Document {
 	
 	@Id	
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
 	@Column(name = "code")
