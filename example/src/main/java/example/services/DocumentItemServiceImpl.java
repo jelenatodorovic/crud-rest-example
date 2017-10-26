@@ -19,4 +19,10 @@ public class DocumentItemServiceImpl implements DocumentItemService{
 		return null;
 	}
 
+	@Override
+	public void delete(int id) {
+		// TODO Auto-generated method stub
+		documentItemDAO.delete(id);
+	}
+
 }

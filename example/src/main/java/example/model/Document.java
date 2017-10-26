@@ -3,6 +3,7 @@ package example.model;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -31,7 +32,8 @@ public class Document {
 	@Column(name = "name")
 	private String name;
 	
-	@OneToMany(mappedBy = "document")
+	@OneToMany(mappedBy = "document",
+			 cascade = CascadeType.ALL)
 	private List<DocumentItem> items;
 	
 	public Document() {}
