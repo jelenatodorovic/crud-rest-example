@@ -25,4 +25,10 @@ public class DocumentItemServiceImpl implements DocumentItemService{
 		documentItemDAO.delete(id);
 	}
 
+	@Override
+	public DocumentItem findById(int id) {
+		// TODO Auto-generated method stub
+		return documentItemDAO.findById(id);
+	}
+
 }

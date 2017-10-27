@@ -8,5 +8,6 @@ public interface DocumentItemDAO extends CrudRepository<DocumentItem, Integer>{
 
 	public DocumentItem save(DocumentItem documentItem);
 	public void delete(int id);
+	public DocumentItem findById(int id);
 	//update
 }

@@ -6,4 +6,5 @@ public interface DocumentItemService {
 
 	public DocumentItem save(DocumentItem documentItem);
 	public void delete(int id);
+	public DocumentItem findById(int id);
 }
