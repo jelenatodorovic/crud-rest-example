@@ -6,7 +6,7 @@ End-points:
 
 ========= Document Object:
 
-*** First create Document object using POST
+*** First create Document object using POST:
 
 POST - /documents 
 
@@ -20,11 +20,11 @@ POST - /documents
 	
 note: id is autogenareted
 	
-*** Read Document object
+*** Read Document object:
 
 GET - /documents/{documentId}
 
-*** Update Document object
+*** Update Document object:
 	
 UPDATE /documents/{documentId}
 
@@ -36,14 +36,14 @@ UPDATE /documents/{documentId}
 	"name": "document1"
 	} 
 	
-*** Delete Document object
+*** Delete Document object:
 
 DELETE - /documents/{documentId}
 
 
 ========= Document Item Object:
 
-*** First create Document Item object using POST
+*** First create Document Item object using POST:
 
 POST - /documents/{documentId}/items
 
@@ -56,13 +56,13 @@ POST - /documents/{documentId}/items
 	
 note: id is autogenareted
 
-*** Read Document Item object(s)
+*** Read Document Item object(s):
 	
 GET - /documents/{documentId}/items
 
 GET - /documents/{documentId}/items/{itemId}
 
-*** Update Document Item object
+*** Update Document Item object:
 
 UPDATE - /{documentId}/items/{itemId}
 
@@ -73,6 +73,9 @@ UPDATE - /{documentId}/items/{itemId}
 	"price":"144.20"
 	}
 	
-*** Update Document Item object	
+*** Delete Document Item object:	
 
 DELETE - /{documentId}/items/{itemId}
+
+note: After creating a document item, if you try reading a document you can see that document item
+is in the list of documents items included in document.
