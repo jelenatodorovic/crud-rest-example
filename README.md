@@ -2,6 +2,8 @@
 
 Running project: mvn spring-boot:run  (App will run on localhost:8080, Database: localhost:8080/h2)
 
+(suggestion: use Postman for sending requests)
+
 End-points:
 
 ========= Document Object:
