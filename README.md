@@ -1,6 +1,6 @@
 # crud-rest-example
 
-Running project: mvn spring-boot:run  (App will run on localhost:8080)
+Running project: mvn spring-boot:run  (App will run on localhost:8080, Database: localhost:8080/h2)
 
 End-points:
 
@@ -78,4 +78,4 @@ UPDATE - /{documentId}/items/{itemId}
 DELETE - /{documentId}/items/{itemId}
 
 note: After creating a document item, if you try reading a document you can see that document item
-is in the list of documents items included in document.
+is in the list of documents items included in document object.
