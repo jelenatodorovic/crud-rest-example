@@ -1,10 +1,10 @@
 # crud-rest-example
 
-Running project: mvn spring-boot:run
+Running project: mvn spring-boot:run  (App will run on localhost:8080)
 
 End-points:
 
-Document Object:
+========= Document Object:
 
 *** First create Document object using POST
 
@@ -17,6 +17,8 @@ POST - /documents
 	"date": "10/24/2017",
 	"name": "document1"
 	}
+	
+note: id is autogenareted
 	
 *** Read Document object
 
@@ -39,7 +41,7 @@ UPDATE /documents/{documentId}
 DELETE - /documents/{documentId}
 
 
-Document Item Object:
+========= Document Item Object:
 
 *** First create Document Item object using POST
 
@@ -51,6 +53,8 @@ POST - /documents/{documentId}/items
 	"name":"documentItem12",
 	"price":"12.20"
 	}
+	
+note: id is autogenareted
 
 *** Read Document Item object(s)
 	
@@ -58,6 +62,17 @@ GET - /documents/{documentId}/items
 
 GET - /documents/{documentId}/items/{itemId}
 
+*** Update Document Item object
 
-UPDATE
-DELETE
+UPDATE - /{documentId}/items/{itemId}
+
+	Request Body Example:
+	
+	{
+	"name":"documentItem12",
+	"price":"144.20"
+	}
+	
+*** Update Document Item object	
+
+DELETE - /{documentId}/items/{itemId}
