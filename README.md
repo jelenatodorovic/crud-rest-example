@@ -60,8 +60,6 @@ note: id is autogenareted
 	
 GET - /documents/{documentId}/items
 
-GET - /documents/{documentId}/items/{itemId}
-
 *** Update Document Item object:
 
 UPDATE - /{documentId}/items/{itemId}
